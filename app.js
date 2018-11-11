@@ -1,6 +1,14 @@
-const http = require('http');
-const routes = require('./routes');
+const express = require('express');
+const body = require('body-parser');
+const app = express();
 
-const server = http.createServer(routes);
+const adminRouter = require('./routes/admin');
+const shopRouter = require('./routes/shop');
 
-server.listen(3000);
+app.use(body.urlencoded({ extended: false }));
+
+//order mathers 
+app.use(adminRouter);
+app.use(shopRouter);
+
+app.listen(3000);

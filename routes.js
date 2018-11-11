@@ -5,7 +5,7 @@ const requestHandler = (req, res) => {
     const method = req.method;
     if (url === '/') {
         res.write('<html>');
-        res.write('<head><title>If ici'
+        res.write('<head><title>Welcome'
             + '</title></head>');
         res.write('<body><form action="/message"'
             + 'method="POST"><input type="text" name="message">'
@@ -29,6 +29,7 @@ const requestHandler = (req, res) => {
             });
         });
     }
+
     res.setHeader('Content-Type', 'text/html');
     res.write('<html>');
     res.write('<head><title>Furkan Özbek'

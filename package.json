@@ -1,0 +1,24 @@
+{
+  "name": "my-nodejs-app",
+  "version": "1.0.0",
+  "description": "Complete Node.js Guide",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afozbek/NodeJS-CompleteProject.git"
+  },
+  "author": "Furkan Özbek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afozbek/NodeJS-CompleteProject/issues"
+  },
+  "homepage": "https://github.com/afozbek/NodeJS-CompleteProject#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}

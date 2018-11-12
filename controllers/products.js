@@ -19,7 +19,7 @@ exports.postAddProduct = (req, res, next) => {
 
 exports.getProducts = (request, response, next) => {
     //View Model
-    const products = Product.fetchAll((products) => {
+    Product.fetchAll((products) => {
         response.render('shop', {
             prods: products,
             pageTitle: 'Shop',

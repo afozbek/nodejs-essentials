@@ -17,6 +17,7 @@ const getProductsFromFile = (cb) => {
             cb(JSON.parse(fileContent)); // array returned
     });
 }
+<<<<<<< HEAD
 //Our Base Class
 module.exports = class Product {
     constructor(title, imageUrl, description, price) {
@@ -24,6 +25,12 @@ module.exports = class Product {
         this.imageUrl = imageUrl;
         this.description = description;
         this.price = price;
+=======
+
+module.exports = class Product {
+    constructor(title) {
+        this.title = title;
+>>>>>>> d4946977082be7c509db9a3db3c41d4ce9c7ddec
     }
 
 

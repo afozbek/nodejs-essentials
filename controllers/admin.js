@@ -79,7 +79,7 @@ exports.postEditProduct = (req, res, next) => {
             return product.save();
         })
         .then(result => {
-            console.log(result);
+            console.log('UPDATED PRODUCT');
             res.redirect('/admin/products');
         })
         .catch(err => {

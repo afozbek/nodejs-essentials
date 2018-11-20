@@ -17,7 +17,8 @@ exports.postAddProduct = (req, res, next) => {
     title: title,
     imageUrl: imageUrl,
     price: price,
-    description: description
+    description: description,
+    userId: req.user // Returns the id we can use req.user._id
   });
   product
     .save()
@@ -78,7 +79,10 @@ exports.postEditProduct = (req, res, next) => {
 
 exports.getProducts = (req, res, next) => {
   Product.find()
+    // .select('title price -_id') //Select specified columns from database
+    .populate('userId')
     .then(products => {
+      console.log(products);
       res.render('admin/product-list', {
         prods: products,
         pageTitle: 'Admin Products',

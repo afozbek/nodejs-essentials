@@ -12,43 +12,45 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const adminRoutes = require('./routes/admin'); //Exports admin router
-const shopRoutes = require('./routes/shop');  //Exports shop router
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  User.findById('5bf4447b0a55062988f90da6,')
+  User.findById('5bf44e46b0d33704dc0072d2')
     .then(user => {
-      req.user = user
+      req.user = user;
       next();
     })
     .catch(err => console.log(err));
 });
 
-app.use('/admin', adminRoutes); //Use the middleware --> /admin/{request} 
-app.use(shopRoutes);  //Use the middleware /{request}
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
 
 app.use(errorController.get404);
 
 mongoose
-  .connect('mongodb+srv://afozbek:admin@myprojects-ggr2u.mongodb.net/shop?retryWrites=true')
-  .then(isConnect => {
-    User.findOne()
-      .then(user => {
-        if (!user) {
-          const user = new User({
-            name: "Furkan Özbek",
-            email: "afozbek@test.com",
-            cart: []
-          });
-          user.save();
-          console.log(user);
-        }
-      });
+  .connect(
+    'mongodb+srv://afozbek:admin@myprojects-ggr2u.mongodb.net/shop?retryWrites=true'
+  )
+  .then(result => {
+    User.findOne().then(user => {
+      if (!user) {
+        const user = new User({
+          name: 'Furkan',
+          email: 'afozbek@test.com',
+          cart: {
+            items: []
+          }
+        });
+        user.save();
+      }
+    });
     app.listen(3000);
   })
   .catch(err => {
     console.log(err);
-  })
+  });

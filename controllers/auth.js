@@ -10,6 +10,7 @@ const User = require('../models/user');
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
+      
     }
   })
 );
@@ -138,7 +139,6 @@ exports.postSignup = (req, res, next) => {
       validationErrors: errors.array()
     });
   }
-
   bcrypt
     .hash(password, 12)
     .then(hashedPassword => {
@@ -151,6 +151,20 @@ exports.postSignup = (req, res, next) => {
     })
     .then(result => {
       res.redirect('/login');
+      transporter.sendMail({
+        to: req.body.email,
+        from: 'shop@node-complete.com',
+        subject: 'A Big Welcome :) ',
+        html: `
+          <p>We are so happy to see you here... </p>
+          <br/>
+          <br/>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacinia at quis risus sed vulputate odio ut enim. Sed ullamcorper morbi tincidunt ornare massa eget egestas. Sit amet dictum sit amet justo donec. Massa sed elementum tempus egestas sed sed. Sit amet consectetur adipiscing elit. Potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Vel pharetra vel turpis nunc eget lorem dolor sed viverra. Urna nunc id cursus metus aliquam eleifend mi in nulla. Leo vel orci porta non pulvinar neque laoreet suspendisse interdum. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Sagittis id consectetur purus ut faucibus pulvinar elementum integer. Diam maecenas sed enim ut. Massa eget egestas purus viverra accumsan in. Tempus imperdiet nulla malesuada pellentesque elit eget gravida.
+
+          Vel pharetra vel turpis nunc eget lorem dolor. Elementum integer enim neque volutpat ac tincidunt vitae semper. Sodales ut eu sem integer vitae. Quis hendrerit dolor magna eget est lorem ipsum. Venenatis lectus magna fringilla urna porttitor. Lacus sed viverra tellus in hac habitasse. Mauris commodo quis imperdiet massa tincidunt nunc. Id aliquet lectus proin nibh nisl condimentum id venenatis a. Nibh nisl condimentum id venenatis a. Pretium lectus quam id leo in vitae. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Orci phasellus egestas tellus rutrum. Sem nulla pharetra diam sit amet nisl suscipit adipiscing bibendum. </p>
+        
+        `
+      });
     })
     .catch(err => {
       const error = new Error(err);

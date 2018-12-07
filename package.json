@@ -31,10 +31,7 @@
     "express-validator": "^5.3.0",
     "mongodb": "^3.1.10",
     "mongoose": "^5.3.13",
-<<<<<<< HEAD
     "multer": "^1.4.1",
-=======
->>>>>>> 12cfb3de1162289eb0a0c271fc57e7a0fb908bf6
     "nodemailer": "^4.7.0",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "nodemon": "^1.18.7"

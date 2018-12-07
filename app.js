@@ -7,9 +7,16 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
+<<<<<<< HEAD
 const multer = require('multer');
 const errorController = require('./controllers/error');
 const User = require('./models/user');
+=======
+
+const errorController = require('./controllers/error');
+const User = require('./models/user');
+
+>>>>>>> 12cfb3de1162289eb0a0c271fc57e7a0fb908bf6
 const MONGODB_URI =
   'mongodb+srv://afozbek:admin@myprojects-ggr2u.mongodb.net/shop';
 
@@ -19,6 +26,7 @@ const store = new MongoDBStore({
   collection: 'sessions'
 });
 const csrfProtection = csrf();
+<<<<<<< HEAD
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'images');
@@ -39,6 +47,8 @@ const fileFilter = (req, file, cb) => {
     cb(null, false);
   }
 };
+=======
+>>>>>>> 12cfb3de1162289eb0a0c271fc57e7a0fb908bf6
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -48,7 +58,10 @@ const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 
 app.use(bodyParser.urlencoded({ extended: false }));
+<<<<<<< HEAD
 app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('image'));
+=======
+>>>>>>> 12cfb3de1162289eb0a0c271fc57e7a0fb908bf6
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   session({
@@ -94,6 +107,10 @@ app.get('/500', errorController.get500);
 app.use(errorController.get404);
 
 app.use((error, req, res, next) => {
+<<<<<<< HEAD
+=======
+  // res.redirect('/500');
+>>>>>>> 12cfb3de1162289eb0a0c271fc57e7a0fb908bf6
   res.status(500).render('500', {
     pageTitle: 'Sorry :(',
     path: '/500',

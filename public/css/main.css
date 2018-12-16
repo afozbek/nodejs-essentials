@@ -8,6 +8,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
+  font-size : 1rem;
 }
 
 main {
@@ -238,6 +239,28 @@ form {
 border-color: red;
 background: rgb(216, 156, 159);
 }
+
+.pagination {
+margin-top: 2rem;
+text-align: center;
+
+}
+
+.pagination a{
+text-decoration: none;
+color: #00695c;
+padding: 0.5rem;
+border: 1px solid #00695c;
+margin: 0 1rem;
+}
+
+.pagination a:hover,
+.pagination a:active,
+.pagination a.active {
+  background-color: #00695c;
+  color:white;
+}
+
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;

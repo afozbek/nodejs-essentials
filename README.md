@@ -1,4 +1,18 @@
-#Node Js Web Project
+# Node-Js
 
+## npm install
 
-Make sure when you download this project, write 'npm install in the terminal'
+This project is build for imporoving my Node-Js skills
+
+### Installing
+
+Make sure download the required packages by:
+
+```
+npm install
+```
+
+## Authors
+
+* **Furkan Özbek** - *Back End Developer* - [afozbek](https://github.com/afozbek)
+

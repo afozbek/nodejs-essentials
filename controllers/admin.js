@@ -12,7 +12,6 @@ exports.getAddProduct = (req, res, next) => {
     validationErrors: []
   });
 };
-
 exports.postAddProduct = (req, res, next) => {
   const title = req.body.title;
   const image = req.file;
@@ -189,7 +188,6 @@ exports.postDeleteProduct = (req, res, next) => {
       console.log('DESTROYED PRODUCT');
       res.redirect('/admin/products');
     })
-
     .catch(err => {
       // res.redirect('/500');
       const error = new Error(err);

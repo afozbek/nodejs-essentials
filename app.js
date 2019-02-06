@@ -104,6 +104,10 @@ app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use(authRoutes);
 
+app.get('/api/test', (req, res) => {
+  res.send({ hello: 'world' });
+});
+
 //Control the 500 status code which is server error
 app.get('/500', errorController.get500);
 

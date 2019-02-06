@@ -10,9 +10,12 @@ const User = require('../models/user');
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
+      //id
     }
   })
 );
+
+
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');

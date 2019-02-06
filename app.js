@@ -72,14 +72,14 @@ app.use(csrfProtection);
 //frontend validation with flash
 app.use(flash());
 
-//Chech to see if user logged in and csrf token is valid
+//Check to see if user logged in and csrf token is valid
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedIn;
   res.locals.csrfToken = req.csrfToken();
   next();
 });
 
-//control the user input by cheching the user-session-id from body
+//control the user input by checking the user-session-id from body
 app.use((req, res, next) => {
   if (!req.session.user) {
     return next();

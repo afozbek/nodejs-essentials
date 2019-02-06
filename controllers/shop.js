@@ -57,6 +57,13 @@ exports.getProduct = (req, res, next) => {
     });
 };
 
+exports.getJson = (req, res, next) => {
+  let message = "Hello World";
+  res.status(200).send(JSON.stringify({
+    mesaj: message
+  }));
+}
+
 exports.getIndex = (req, res, next) => {
   const page = +req.query.page || 1;
   let totalItems;

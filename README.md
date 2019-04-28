@@ -14,5 +14,5 @@ npm install
 
 ## Authors
 
-* **Furkan Özbek** - *Back End Developer* - [afozbek](https://github.com/afozbek)
+* **Furkan Özbek** - *Junior Software Deve* - [afozbek](https://github.com/afozbek)
 
